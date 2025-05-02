@@ -1,6 +1,8 @@
 export default {
   title: "TipJar",
   description: "Tip calculation application for partners",
+  base: '/',
+  outDir: 'docs/.vitepress/dist',
   themeConfig: {
     // Removing navigation and sidebar for a single page app
     nav: [],
