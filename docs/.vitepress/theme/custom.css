@@ -1,0 +1,636 @@
+:root {
+    /* Starbucks Spring Color Palette - Darker Tones */
+    --spring-green: #8fe58b;
+    --spring-blue: #a0d2eb;
+    --spring-lavender: #d1b3de;
+    --spring-pink: #ffb6c1;
+    --spring-yellow: #ffefd6;
+    --spring-peach: #ffd1ba;
+    --spring-accent: #dd7596;
+    --app-bg: #2f4f4f;           /* Dark slate gray */
+    --app-darker: #1e3535;        /* Darker slate shade */
+    --app-card: #3a5c5c;          /* Lighter slate for cards */
+    --app-input: #2f4f4f;
+    --text-white: #f5f5f5;
+}
+
+/* Dark mode colors */
+.dark {
+    --bg-primary: var(--app-bg);
+    --bg-secondary: var(--app-darker);
+    --text-primary: var(--text-white);
+    --text-secondary: var(--spring-accent);
+    --card-bg: var(--app-card);
+    --input-bg: var(--app-input);
+    --button-hover: var(--spring-green);
+}
+
+/* Override VitePress default styles */
+html.dark {
+    --vp-c-bg: var(--app-bg);
+    --vp-c-bg-alt: var(--app-darker);
+    --vp-c-text: var(--text-white);
+}
+
+/* Hide VitePress navigation */
+.VPNav {
+    display: none !important;
+}
+
+/* Hide VitePress sidebar */
+.VPSidebar {
+    display: none !important;
+}
+
+/* Make the content full width */
+.VPContent {
+    padding-top: 0 !important;
+}
+
+.VPContent.has-sidebar {
+    margin-left: 0 !important;
+}
+
+.VPDoc.has-sidebar .content-container {
+    max-width: 100% !important;
+}
+
+/* Remove the page padding in mobile view */
+.VPDoc .content {
+    padding: 0 !important;
+}
+
+body {
+    font-family: 'Public Sans', sans-serif;
+    font-weight: 300;
+    background-color: var(--app-bg);
+    color: var(--text-primary);
+    min-height: 100vh;
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+.logo-container {
+    display: none;
+}
+
+.app-title {
+    color: #FFFFFF;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 3.5rem;
+    text-shadow: 0 0 15px rgba(221, 117, 150, 0.3);
+    position: relative;
+    display: inline-block;
+    font-family: 'Lander', serif;
+}
+
+.app-subtitle {
+    color: var(--spring-pink);
+    font-style: italic;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    font-family: 'Public Sans', sans-serif;
+    font-weight: 300;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Public Sans', sans-serif;
+    font-weight: 400;
+    color: var(--spring-pink);
+}
+
+.custom-card {
+    border: 1px solid rgba(221, 117, 150, 0.2);
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: var(--card-bg);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.custom-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.partner-card {
+    border: 1px solid rgba(221, 117, 150, 0.15);
+    padding: 12px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    background-color: var(--card-bg);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.partner-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.partner-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.partner-card-name {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--text-primary);
+}
+
+.partner-card-amount {
+    color: var(--spring-accent);
+    font-weight: bold;
+    font-size: 20px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.calculation-box {
+    font-size: 14px;
+    margin-top: 8px;
+    background-color: rgba(143, 229, 139, 0.15);
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.bills-box {
+    font-size: 14px;
+    margin-top: 8px;
+    background-color: rgba(209, 179, 222, 0.15);
+    padding: 8px 10px;
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.bill-chip {
+    background-color: rgba(160, 210, 235, 0.2);
+    color: var(--text-primary);
+    padding: 6px 10px;
+    border-radius: 16px;
+    display: inline-block;
+    margin-right: 6px;
+    margin-bottom: 6px;
+    font-size: 13px;
+    backdrop-filter: blur(4px);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.bill-chip:hover {
+    background-color: rgba(143, 229, 139, 0.3);
+    transform: scale(1.05);
+}
+
+.section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, rgba(221,117,150,0) 0%, rgba(221,117,150,0.5) 50%, rgba(221,117,150,0) 100%);
+    margin: 20px 0;
+}
+
+input[type="number"], input[type="text"] {
+    border: 1px solid rgba(221, 117, 150, 0.3);
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: var(--input-bg);
+    color: var(--text-primary);
+    font-size: 15px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="number"]:focus, input[type="text"]:focus {
+    border-color: var(--spring-accent);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(221, 117, 150, 0.15);
+}
+
+.btn-primary {
+    background-color: transparent;
+    color: #FFFFFF;
+    border: 2px solid #FFFFFF;
+    border-radius: 30px;
+    padding: 7px 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    width: 100%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 15px;
+    text-align: center;
+    display: inline-block;
+    max-width: 250px;
+}
+
+.btn-primary:hover {
+    background-color: #FFFFFF;
+    color: var(--app-bg);
+    transform: none;
+    box-shadow: none;
+}
+
+.btn-primary:active {
+    transform: translateY(1px);
+}
+
+.collapsible {
+    background-color: rgba(255, 209, 186, 0.15);
+    color: var(--text-primary);
+    cursor: pointer;
+    padding: 16px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 16px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(4px);
+}
+
+.collapsible:hover {
+    background-color: rgba(255, 239, 214, 0.2);
+}
+
+.collapsible:after {
+    content: '\002B';
+    color: var(--spring-accent);
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+.active {
+    background-color: var(--spring-yellow);
+}
+
+.active:after {
+    content: "\2212";
+    transform: rotate(180deg);
+}
+
+.collapsible-content {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    border-radius: 0 0 12px 12px;
+}
+
+.file-drop-area {
+    position: relative;
+    border: 2px dashed var(--spring-accent);
+    border-radius: 16px;
+    padding: 30px 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 239, 214, 0.1);
+    backdrop-filter: blur(4px);
+}
+
+.file-drop-area:hover, .file-drop-area.dragover {
+    border-color: var(--spring-accent);
+    background-color: rgba(255, 209, 186, 0.15);
+}
+
+.file-drop-icon {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: var(--spring-accent);
+    opacity: 0.9;
+}
+
+.file-message {
+    color: var(--text-primary);
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.file-input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.footer-text {
+    color: var(--text-primary);
+    transition: color 0.2s ease;
+}
+
+.footer-text:hover {
+    color: var(--spring-accent);
+}
+
+.bills-summary {
+    background-color: rgba(160, 210, 235, 0.15);
+    padding: 10px;
+    margin-top: 8px;
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.bills-summary span {
+    color: var(--spring-accent);
+    font-weight: bold;
+}
+
+/* Two-column layout for partner data */
+.partner-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+.preview-container {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#previewImage {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 8px;
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .logo-container {
+        width: 200px;
+        height: 200px;
+    }
+
+    .app-title {
+        font-size: 2.5rem;
+        margin-top: 1rem;
+    }
+
+    .app-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+
+    input, select {
+        font-size: 15px;
+        min-height: 40px;
+    }
+
+    .btn-primary {
+        padding: 8px 12px;
+        font-size: 14px;
+        min-height: unset;
+    }
+
+    .custom-card, .partner-card {
+        padding: 12px;
+        margin-bottom: 12px;
+    }
+
+    .calculation-box, .bills-box {
+        padding: 8px;
+        font-size: 13px;
+    }
+
+    .bill-chip {
+        padding: 5px 8px;
+        font-size: 12px;
+    }
+    
+    .collapsible {
+        padding: 12px;
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 768px) {
+    .partner-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .card-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
+    .full-width {
+        grid-column: 1 / span 2;
+    }
+    
+    .btn-primary {
+        padding: 12px 24px;
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        padding: 20px;
+    }
+    
+    .app-title {
+        font-size: 3.5rem;
+    }
+    
+    .partner-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+    
+    .custom-card {
+        padding: 20px;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    .app-title {
+        font-size: 2rem;
+    }
+    
+    .app-subtitle {
+        font-size: 0.8rem;
+    }
+    
+    .btn-primary {
+        padding: 6px 10px;
+        font-size: 13px;
+    }
+    
+    .partner-card-amount {
+        font-size: 16px;
+    }
+    
+    .calculation-box, .bills-box {
+        font-size: 12px;
+    }
+    
+    .bill-chip {
+        padding: 4px 6px;
+        font-size: 11px;
+        margin-right: 4px;
+        margin-bottom: 4px;
+    }
+    
+    #previewImage {
+        max-height: 200px;
+    }
+}
+
+/* Utility classes */
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.px-3 {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+
+.py-5 {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+}
+
+.max-w-4xl {
+    max-width: 56rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mb-6 {
+    margin-bottom: 1.5rem;
+}
+
+.animate__animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+.animate__fadeIn {
+    animation-name: fadeIn;
+}
+
+.animate__fadeInUp {
+    animation-name: fadeInUp;
+}
+
+.animate__delay-1s {
+    animation-delay: 1s;
+}
+
+.hidden {
+    display: none;
+}
+
+.mt-3 {
+    margin-top: 0.75rem;
+}
+
+.mt-4 {
+    margin-top: 1rem;
+}
+
+.mt-5 {
+    margin-top: 1.25rem;
+}
+
+.mb-3 {
+    margin-bottom: 0.75rem;
+}
+
+.mb-4 {
+    margin-bottom: 1rem;
+}
+
+.p-3 {
+    padding: 0.75rem;
+}
+
+.p-4 {
+    padding: 1rem;
+}
+
+.block {
+    display: block;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.whitespace-pre-wrap {
+    white-space: pre-wrap;
+}
+
+.text-lg {
+    font-size: 1.125rem;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+.text-gray-100 {
+    color: rgb(243, 244, 246);
+}
+
+.text-gray-300 {
+    color: rgb(209, 213, 219);
+}
+
+.text-gray-400 {
+    color: rgb(156, 163, 175);
+}
+
+/* Hide scrollbar while keeping functionality */
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+/* Add keyframes for animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+} 
